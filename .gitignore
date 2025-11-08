@@ -1,0 +1,16 @@
+# macOS / éditeurs
+.DS_Store
+.vscode/
+.idea/
+
+# Node au cas où plus tard
+node_modules/
+
+# Builds / caches possibles
+dist/
+build/
+.cache/
+
+# Fichiers d'environnement
+.env
+.env.*
