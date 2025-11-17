@@ -52,20 +52,22 @@ function draw() {
   if (lesPoissons) lesPoissons.run();
 }
 
-function mousePressed() {
-  cibleCliquee = createVector(mouseX, mouseY);
+function handlePointer(x, y) {
+  cibleCliquee = createVector(x, y);
   if (lesPoissons) lesPoissons.definirCible(cibleCliquee);
 }
 
-// Garde le canvas plein-fenêtre si on redimensionne
+function mousePressed() {
+  handlePointer(mouseX, mouseY);
+}
+
+function touchStarted() {
+  handlePointer(mouseX, mouseY);
+  return false;
+}
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
-// Option: toggle "vrai" fullscreen (API navigateur) avec la touche 'f'
-function keyPressed() {
-  if (key === 'f' || key === 'F') {
-    let fs = fullscreen();
-    fullscreen(!fs);
-  }
-}
+
